@@ -14,167 +14,300 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/font-awesome.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/style.css?v=3" type="text/css">
 
-    <style>
-        /* Variables de color (Consolidado) */
-        :root {
-            --primary-color: #402E71; /* Morado Oscuro para acento */
-            --text-light: #ffffff;
-            --text-dark: #333333;
-        }
-        
-        /* --- 1. Aplicación de Times New Roman a toda la página (Alta Prioridad) --- */
-        body, 
-        h1, h2, h3, h4, h5, h6, 
-        p, span, a, li, 
-        .header__nav__option .header__nav__menu ul li a, /* Menú */
-        .hero__text h2, 
-        .section-title h2 { /* Títulos */
-            font-family: "Times New Roman", Times, serif !important;
-        }
-        /* --------------------------------------------------- */
+<style>
+    /* 🎨 Variables de Color y Tipografía */
+    :root {
+        --primary-color: #402E71; /* Morado Oscuro para acento y fondos principales */
+        --text-light: #ffffff;    /* Texto general en fondos oscuros */
+        --text-dark: #333333;     /* No usado activamente, pero disponible */
+        --background-dark: #333333; /* Fondo de secciones oscuras (e.g., Testimonios) */
+        --focus-shadow: 0 0 0 0.2rem rgba(64, 46, 113, 0.5); /* Sombra Morada para accesibilidad */
+    }
 
-        /* Estilo para el botón flotante de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    /* 🖋️ Tipografía Global */
+    /* Aplica Times New Roman a todos los elementos principales */
+    body, 
+    h1, h2, h3, h4, h5, h6, 
+    p, span, a, li, 
+    .header__nav__option .header__nav__menu ul li a, 
+    .hero__text h2, 
+    .section-title h2 { 
+        font-family: "Times New Roman", Times, serif !important;
+    }
 
-        /* 2. MENÚ INICIAL: Ahora siempre oscuro/del fondo */
-        .header {
-            position: fixed; /* Siempre fijo */
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            background: #000000; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        .header .header__nav__option .header__nav__menu ul li a {
-            color: var(--text-light) !important; 
-        }
+    /* ------------------------------------------------------------------------- */
+    /* 🛡️ FIX CRÍTICO: Anulación de Contornos Azules (Foco/Accesibilidad) */
+    /* Forzar box-shadow y outline en foco para anular estilos de frameworks como Bootstrap */
 
-        /* 3. PALETA DE COLORES: Forzar texto blanco en toda la página sobre fondos oscuros */
-        /* Nota: Se mantiene esta regla para el color, aunque la regla 1 maneja la fuente */
-        body, 
-        h1, h2, h3, h4, h5, h6, 
-        p, 
-        .section-title span, 
-        .section-title h2,
-        .services__item h4,
-        .services__item p,
-        .services__item h5,
-        .service-cost,
-        .about__text p {
-            color: var(--text-light) !important;
-        }
-        
-        /* 4. ESTILOS DE TESTIMONIOS: FONDO TRANSPARENTE Y TEXTO BLANCO */
-        .counter__item__text p {
-            color: var(--text-light) !important;
-        }
-        .testimonial__text p, .testimonial__author__text h5, .testimonial__author__text span {
-            color: var(--text-light) !important; /* FORZAMOS TEXTO A BLANCO */
-        }
-        .testimonial__item {
-            background: transparent !important; /* Hacemos el fondo transparente */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil blanco para separarlo del fondo */
-            padding: 30px;
-            border-radius: 10px;
-        }
-        .testimonial.set-bg {
-            background-color: #333333 !important; 
-        }
+    /* 1. Botones y Enlaces con Foco */
+    .btn:focus, 
+    .site-btn:focus,
+    .primary-btn:focus,
+    .header a:focus, 
+    a:focus {
+        box-shadow: var(--focus-shadow) !important;
+        border-color: var(--primary-color) !important;
+        outline: 0 !important; 
+    }
 
-        /* 5. Botones y Formularios */
-        .primary-btn, .site-btn {
-            background-color: var(--primary-color) !important; /* Aplicar morado oscuro */
-            color: var(--text-light) !important; 
-        }
-        
-        /* Estilos para formularios (contact form) */
-        .contact__form input[type="text"], 
-        .contact__form input[type="email"], 
-        .contact__form input[type="tel"],
-        .contact__form textarea {
-            background: transparent !important; 
-            border: 1px solid rgba(255, 255, 255, 0.2) !important; 
-            color: var(--text-light) !important; 
-            box-shadow: none !important;
-            padding: 10px 20px;
-            height: auto; 
-            margin-bottom: 30px; 
-            width: 100%; 
-        }
-        .contact__form ::placeholder {
-            color: #ccc !important; 
-            opacity: 1 !important;
-        }
-        .contact__form input:focus, 
-        .contact__form textarea:focus {
-            border-color: var(--primary-color) !important; 
-            outline: none !important;
-        }
+    /* 2. Formularios (Inputs y Textareas) con Foco */
+    .form-control:focus, 
+    input:focus, 
+    textarea:focus {
+        border-color: var(--primary-color) !important;
+        box-shadow: var(--focus-shadow) !important; 
+        outline: 0 !important;
+    }
 
-        /* 6. ESTILOS DE PANELES DE SERVICIO (NUEVOS) */
-        .service-panel-img {
-            margin-bottom: 25px; 
-            border-radius: 8px; 
-            overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
-        }
-        .service-panel-img img {
-            width: 100%; 
-            height: 250px; 
-            object-fit: cover; 
-            display: block;
-        }
-        .services__item:hover .service-panel-img {
-            transform: none;
-        }
-        .services__item:hover {
-            border: none; 
-        }
-        /* Eliminamos cualquier estilo huérfano de services__item__icon */
-        .services__item__icon i {
-            color: var(--primary-color) !important;
-            display: none; /* Asegurar que no se muestre ningún ícono antiguo */
-        }
+    /* 3. Menú Móvil (Slicknav) con Foco */
+    .slicknav_btn:focus, 
+    .slicknav_menu a:focus {
+        box-shadow: var(--focus-shadow) !important;
+        outline: 0 !important;
+    }
+    /* ------------------------------------------------------------------------- */
 
-        /* 7. Footer */
-        .footer__option__item h5, .footer__option__item ul li a, .footer__option__item p, .footer__copyright__text {
-            color: var(--text-light) !important;
-        }
-        .footer__top__social a {
-            color: var(--text-light) !important;
-        }
-        .instagram-link {
-            display: block; 
-            margin-top: 10px;
-        }
-    </style>
+
+    /* ⬆️ AJUSTES DEL HEADER (Encabezado Fijo y Compacto) */
+
+    .header {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: rgba(64, 46, 113, 0.9) !important; /* Fondo Morado Semitransparente */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        padding-top: 5px !important; 
+        padding-bottom: 5px !important; 
+        transition: background 0.3s;
+    }
+
+    /* Reducción Extrema de Altura */
+    .header .header__logo img {
+        max-height: 35px !important; 
+        width: auto;
+    }
+    .header .header__nav__option,
+    .header .header__nav__social {
+        height: 35px; /* Altura de la línea */
+        line-height: 35px; /* Centrado vertical */
+    }
+
+    /* Tamaño y Espaciado del Menú Desktop */
+    .header .header__nav__option .header__nav__menu ul li a {
+        color: var(--text-light) !important;
+        font-size: 12px !important; /* Letra muy pequeña */
+        padding: 5px 8px !important; /* Padding compacto */
+        display: inline-block;
+    }
+
+    /* Color de Acento/Hover/Activo del Menú Desktop */
+    .header .header__nav__option .header__nav__menu ul li.active a:after,
+    .header .header__nav__option .header__nav__menu ul li a:hover:after {
+        background: var(--primary-color) !important; /* Subrayado Morado */
+    }
+    
+    /* Íconos de Redes Sociales en Header */
+    .header__nav__social a {
+        color: var(--text-light) !important; 
+    }
+    .header__nav__social a:hover {
+        color: var(--primary-color) !important; 
+    }
+
+
+    /* 💡 Paleta de Colores: Forzar Texto Claro */
+    /* Asegura texto blanco en elementos comunes sobre fondos oscuros */
+    body, 
+    h1, h2, h3, h4, h5, h6, 
+    p, 
+    .section-title span, 
+    .section-title h2,
+    .services__item h4,
+    .services__item p,
+    .services__item h5,
+    .service-cost,
+    .about__text p {
+        color: var(--text-light) !important;
+    }
+
+    /* --------------------------------------------------- */
+    /* 🛠️ Estilos de Botones y Formularios */
+
+    /* Botones de Acción (Morado con Texto Claro) */
+    .primary-btn, .site-btn {
+        background-color: var(--primary-color) !important; 
+        color: var(--text-light) !important; 
+    }
+
+    /* Estilos de Campos de Formulario (para Contacto) */
+    .contact__form input[type="text"], 
+    .contact__form input[type="email"], 
+    .contact__form input[type="tel"],
+    .contact__form textarea {
+        /* LÍNEA CORREGIDA: Fondo oscuro para los inputs */
+        background: #252525 !important; 
+        border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Borde sutil claro */
+        color: var(--text-light) !important; 
+        box-shadow: none !important;
+        padding: 10px 20px;
+        height: auto; 
+        margin-bottom: 30px; 
+        width: 100%; 
+    }
+    /* Color del Placeholder */
+    .contact__form ::placeholder {
+        color: #ccc !important; 
+        opacity: 1 !important;
+    }
+    
+    /* --------------------------------------------------- */
+    /* ⚙️ Estilos de Servicios y Paneles */
+
+    /* Panel de Imagen de Servicio */
+    .service-panel-img {
+        margin-bottom: 25px; 
+        border-radius: 8px; 
+        overflow: hidden; 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    }
+    .service-panel-img img {
+        width: 100%; 
+        height: 250px; 
+        object-fit: cover; 
+        display: block;
+    }
+
+    /* Ícono del Servicio (Círculo y Símbolo) */
+    .services__item__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1); 
+        margin-bottom: 20px;
+    }
+    .services__item__icon i {
+        color: var(--text-light) !important; 
+        font-size: 24px;
+    }
+
+
+    /* 💬 Estilos de Testimonios y Contadores */
+    
+    .counter__item__text p {
+        color: var(--text-light) !important;
+    }
+    .testimonial.set-bg {
+        background-color: var(--background-dark) !important; 
+    }
+    .testimonial__item {
+        background: transparent !important; 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: none !important;
+    }
+    .testimonial__text p, 
+    .testimonial__author__text h5, 
+    .testimonial__author__text span {
+        color: var(--text-light) !important; 
+    }
+
+    /* --------------------------------------------------- */
+    /* ⬇️ Estilos del Footer */
+    
+    /* Color de Texto en Footer */
+    .footer__option__item h5, 
+    .footer__option__item ul li a, 
+    .footer__option__item p, 
+    .footer__copyright__text {
+        color: var(--text-light) !important;
+    }
+
+    /* Reducción de Tamaño de Letra en Footer */
+    .footer__option__item ul li a,
+    .footer__option__item p {
+        font-size: 0.85em !important; 
+    }
+    
+    /* Íconos de Redes Sociales en Footer */
+    .footer__option__item .footer__top__social a {
+        color: var(--text-light) !important; 
+    }
+    .footer__option__item .footer__top__social a:hover {
+        color: var(--primary-color) !important; 
+    }
+
+    /* Enlace de Instagram/TikTok */
+    .instagram-link, .tiktok-link {
+        display: flex; 
+        align-items: center;
+        margin-top: 10px;
+        color: var(--text-light) !important; 
+    }
+    .instagram-link:hover, .tiktok-link:hover {
+        color: var(--primary-color) !important; 
+    }
+
+    /* 📱 Estilos Móviles (Slicknav) */
+
+    /* Botón de Menú Hamburguesa */
+    .slicknav_menu .slicknav_menutxt {
+        display: none !important; /* Ocultar la palabra "MENU" */
+    }
+    .slicknav_menu .slicknav_btn {
+        background-color: var(--primary-color) !important; /* Fondo Morado */
+        cursor: pointer;
+    }
+    .slicknav_menu .slicknav_icon-bar {
+        background-color: var(--text-light) !important; /* Barras Blancas */
+    }
+
+    /* Acentos del Menú Abierto (Hover/Activo) */
+    .slicknav_menu a:hover {
+        background: rgba(64, 46, 113, 0.7) !important; /* Fondo Morado Semitransparente al hacer hover */
+        color: var(--text-light) !important;
+    }
+    .slicknav_menu .slicknav_row:hover, 
+    .slicknav_menu .slicknav_row.slicknav_parent-link:hover,
+    .slicknav_menu a.slicknav_open, 
+    .slicknav_menu a.slicknav_open:hover, 
+    .slicknav_menu .slicknav_item a:hover {
+        color: var(--text-light) !important;
+    }
+
+    /* 🟢 Estilo para el Botón Flotante de WhatsApp */
+    .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366; /* Verde WhatsApp */
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
 </head>
 
 <body id="inicio">
@@ -193,17 +326,18 @@
                 <div class="col-lg-10">
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
-                            <ul>
-                                <li class="active"><a href="#inicio">Inicio</a></li>
-                                <li><a href="#acerca">Acerca de Nosotros</a></li>
-                                <li><a href="#servicios">Nuestros Servicios</a></li>
-                                <li><a href="#contacto">Contáctanos</a></li>
+                            <ul style="font-size: 12px !important; padding: 0 !important; margin: 0 !important;">
+                                <li class="active"><a href="#inicio" style="font-size: 12px !important;">Inicio</a></li>
+                                <li><a href="#acerca" style="font-size: 12px !important;">Acerca de Nosotros</a></li>
+                                <li><a href="#servicios" style="font-size: 12px !important;">Nuestros Servicios</a></li>
+                                <li><a href="#contacto" style="font-size: 12px !important;">Contáctanos</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__social">
-                            <a href="mailto:tu-correo@ejemplo.com"><i class="fa fa-envelope"></i></a>
-                            <a href="https://instagram.com/tu_usuario" target="_blank"><i class="fa fa-instagram"></i></a>
-                            <a href="https://wa.me/tunumerodetelefono" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                            <a href="mailto:okutemoom@gmail.com"><i class="fa fa-envelope"></i></a>
+                            <a href="https://www.instagram.com/okutemoom/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://wa.me/525549226521" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@okutemoom7" target="_blank"><i class="fa fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
@@ -228,7 +362,6 @@
             </div>
         </div>
     </section>
-
     <section class="about spad" id="acerca">
         <div class="container">
             <div class="row">
@@ -258,11 +391,18 @@
                             <span>Nuestra Esencia Holística</span>
                             <h2>¿Quiénes Somos en Okutemoom?</h2>
                         </div>
-                        <div class="row">
+                        <div class="about__text__desc">
+                            <p>
+                                En Okutemoom, creemos firmemente en el poder de la transformación personal a través de la sabiduría ancestral del Tarot y la disciplina moderna del Coaching Holístico. Nuestra misión es ser tu guía de luz, ofreciendo un enfoque integral que aborda la mente, el cuerpo y el espíritu.
+                                Nuestro trabajo se centra en ayudarte a reconectar con tu ser auténtico, liberando bloqueos y activando tu potencial para una vida plena y con propósito.
+                            </p>
+                            <a href="#contacto" class="primary-btn">Hablemos de tu Viaje</a>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="services__item">
                                     <div class="services__item__icon">
-                                        <i class="fa fa-lightbulb-o"></i> 
+                                        <i class="fa fa-map-signs"></i> 
                                     </div>
                                     <h4>Guía y Claridad</h4>
                                     <p>Te proporcionamos las herramientas para iluminar tu camino y tomar decisiones conscientes.</p>
@@ -271,19 +411,12 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="services__item">
                                     <div class="services__item__icon">
-                                        <i class="fa fa-leaf"></i>
+                                        <i class="fa fa-tree"></i>
                                     </div>
                                     <h4>Sanación y Crecimiento</h4>
                                     <p>Te acompañamos en tu proceso de sanación interior y evolución espiritual.</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="about__text__desc">
-                            <p>
-                                En **Okutemoom**, creemos firmemente en el poder de la **transformación personal** a través de la sabiduría ancestral del **Tarot** y la disciplina moderna del **Coaching Holístico**. Nuestra misión es ser tu guía de luz, ofreciendo un enfoque integral que aborda la mente, el cuerpo y el espíritu.
-                                Nuestro trabajo se centra en ayudarte a **reconectar con tu ser** auténtico, liberando bloqueos y activando tu potencial para una vida plena y con propósito.
-                            </p>
-                            <a href="#contacto" class="primary-btn">Hablemos de tu Viaje</a>
                         </div>
                     </div>
                 </div>
@@ -362,10 +495,6 @@
                             <div class="testimonial__author">
                                 <div class="testimonial__author__pic">
                                     <img src="img/testimonial/ta-1.jpg" alt="Foto de Cliente 4">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>David G.</h5>
-                                    <span>Arquitecto</span>
                                 </div>
                             </div>
                         </div>
@@ -458,7 +587,7 @@
                     <div class="services__item">
                         <div class="service-panel-img">
                             <img src="img/portfolio/rituales.jpg" alt="Rituales de Poder">
-                        </div
+                        </div>
                         <h4>Rituales de Poder</h4>
                         <p>Rituales energéticos personalizados para atraer abundancia, limpieza o protección.</p>
                         <a href="rituales.html" class="primary-btn">Solicitar Ritual</a>
@@ -468,7 +597,6 @@
             </div>
         </div>
     </section>
-
     <section class="contact spad" id="contacto">
         <div class="container">
             <div class="row">
@@ -482,7 +610,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p>Usa este formulario para registrar cualquier duda, pregunta o solicitud de información general. Te responderemos por correo electrónico lo antes posible.</p>
-                    <form action="tu-endpoint-de-envio-de-correo" method="POST" class="contact__form">
+                    <form id="contact-form" method="post" class="contact__form" onsubmit="handleFormSubmit(event)">
                         <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" name="nombre" placeholder="Nombre" required>
@@ -494,7 +622,10 @@
                                 <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
                             </div>
                             <div class="col-lg-12 text-center">
-                                <button type="submit" class="site-btn">Enviar Mensaje</button>
+                                <button type="submit" id="submit-button" class="site-btn">
+                                    <span id="submit-text">Enviar Mensaje</span>
+                                    <span id="loading-spinner" style="display: none;">Enviando...</span>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -502,25 +633,11 @@
             </div>
         </div>
     </section>
-    
-
-    
-    <a href="https://wa.me/tunumerodetelefono?text=Hola%20Okutemoom,%20me%20gustaría%20agendar%20una%20cita." target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20me%20gustaría%20agendar%20una%20cita." target="_blank" class="whatsapp-float">
         <i class="fa fa-whatsapp"></i>
     </a>
     <footer class="footer">
         <div class="container">
-            <div class="footer__top">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__top__logo">
-                            <a href="#inicio"><img src="img/logo.png" alt="Okutemoom Logo"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        </div>
-                </div>
-            </div>
             <div class="footer__option">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -549,10 +666,17 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__option__item">
                             <h5>Síguenos en Redes</h5>
-                            <a href="https://instagram.com/okutemoom" target="_blank" class="instagram-link">
+                            
+                            <a href="https://www.instagram.com/okutemoom/" target="_blank" class="instagram-link">
                                 <i class="fa fa-instagram fa-2x"></i>
                                 <span style="margin-left: 10px; font-weight: bold; font-size: 1.1em;">@okutemoom</span>
                             </a>
+                            
+                            <a href="https://www.tiktok.com/@okutemoom7" target="_blank" class="tiktok-link" style="margin-top: 5px;">
+                                <i class="fa fa-tiktok fa-2x"></i>
+                                <span style="margin-left: 10px; font-weight: bold; font-size: 1.1em;">@okutemoom7</span>
+                            </a>
+                            
                             <p style="margin-top: 15px;">Conéctate con nuestra comunidad holística y recibe inspiración diaria.</p>
                         </div>
                     </div>
@@ -579,10 +703,79 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-        // Se eliminó todo el código JS de flujo de cita (iniciarCita, ocultarSeccionesFlujo, etc.)
-    </script>
 
+<div id="success-modal" style="display: none;">
+    <div class="modal-content-wrapper">
+        <button class="close-button" onclick="closeModal()">×</button>
+        <h3>¡Mensaje Enviado con Éxito!</h3>
+        <p>Gracias por contactarnos. Te responderemos pronto.</p>
+        <div class="modal-body">
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
 </body>
+
+<script>
+    const form = document.getElementById('contact-form');
+    const formspreeUrl = 'https://formspree.io/f/xwpgwrlv'; 
+    const successModal = document.getElementById('success-modal');
+    
+    // Nuevas variables para el botón y texto/spinner
+    const submitButton = document.getElementById('submit-button');
+    const submitText = document.getElementById('submit-text');
+    const loadingSpinner = document.getElementById('loading-spinner');
+
+    function closeModal() {
+        successModal.style.display = 'none';
+    }
+
+    function handleFormSubmit(event) {
+        console.log("-> Función de envío iniciada."); // << AÑADE ESTA LÍNEA
+        event.preventDefault(); 
+        
+        // 1. ESTADO DE CARGA: Desactivar botón y mostrar spinner
+        submitButton.disabled = true;
+        submitText.style.display = 'none';
+        loadingSpinner.style.display = 'inline-block';
+        
+        const data = new FormData(event.target);
+        
+        fetch(formspreeUrl, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Éxito: Muestra el modal de confirmación
+                successModal.style.display = 'block'; 
+                form.reset(); 
+            } else {
+                // Falla: Muestra una alerta de error
+                alert("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Error de conexión. Por favor, verifica tu red.");
+        })
+        .finally(() => {
+            // 2. ESTADO FINAL: Reactivar botón y ocultar spinner
+            submitButton.disabled = false;
+            submitText.style.display = 'inline-block';
+            loadingSpinner.style.display = 'none';
+        });
+    }
+
+    // Opcional: Cierra el modal si el usuario hace clic fuera de él
+    window.onclick = function(event) {
+        if (event.target == successModal) {
+            closeModal();
+        }
+    }
+</script>
 
 </html>
