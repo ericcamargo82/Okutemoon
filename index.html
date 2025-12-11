@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Okutemoom - Tarot y Coaching Holístico. Tu viaje de transformación comienza aquí.">
+    <meta name="keywords" content="Okutemoom, Tarot, Coaching Holístico, Vidas Pasadas, Rituales, Una Sola Página">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Okutemoom | Guía Holística</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        /* Variables de color (Consolidado) */
+        :root {
+            --primary-color: #402E71; /* Morado Oscuro para acento */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+        
+        /* --- 1. Aplicación de Times New Roman a toda la página (Alta Prioridad) --- */
+        body, 
+        h1, h2, h3, h4, h5, h6, 
+        p, span, a, li, 
+        .header__nav__option .header__nav__menu ul li a, /* Menú */
+        .hero__text h2, 
+        .section-title h2 { /* Títulos */
+            font-family: "Times New Roman", Times, serif !important;
+        }
+        /* --------------------------------------------------- */
+
+        /* Estilo para el botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 2. MENÚ INICIAL: Ahora siempre oscuro/del fondo */
+        .header {
+            position: fixed; /* Siempre fijo */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: #000000; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .header .header__nav__option .header__nav__menu ul li a {
+            color: var(--text-light) !important; 
+        }
+
+        /* 3. PALETA DE COLORES: Forzar texto blanco en toda la página sobre fondos oscuros */
+        /* Nota: Se mantiene esta regla para el color, aunque la regla 1 maneja la fuente */
+        body, 
+        h1, h2, h3, h4, h5, h6, 
+        p, 
+        .section-title span, 
+        .section-title h2,
+        .services__item h4,
+        .services__item p,
+        .services__item h5,
+        .service-cost,
+        .about__text p {
+            color: var(--text-light) !important;
+        }
+        
+        /* 4. ESTILOS DE TESTIMONIOS: FONDO TRANSPARENTE Y TEXTO BLANCO */
+        .counter__item__text p {
+            color: var(--text-light) !important;
+        }
+        .testimonial__text p, .testimonial__author__text h5, .testimonial__author__text span {
+            color: var(--text-light) !important; /* FORZAMOS TEXTO A BLANCO */
+        }
+        .testimonial__item {
+            background: transparent !important; /* Hacemos el fondo transparente */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil blanco para separarlo del fondo */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .testimonial.set-bg {
+            background-color: #333333 !important; 
+        }
+
+        /* 5. Botones y Formularios */
+        .primary-btn, .site-btn {
+            background-color: var(--primary-color) !important; /* Aplicar morado oscuro */
+            color: var(--text-light) !important; 
+        }
+        
+        /* Estilos para formularios (contact form) */
+        .contact__form input[type="text"], 
+        .contact__form input[type="email"], 
+        .contact__form input[type="tel"],
+        .contact__form textarea {
+            background: transparent !important; 
+            border: 1px solid rgba(255, 255, 255, 0.2) !important; 
+            color: var(--text-light) !important; 
+            box-shadow: none !important;
+            padding: 10px 20px;
+            height: auto; 
+            margin-bottom: 30px; 
+            width: 100%; 
+        }
+        .contact__form ::placeholder {
+            color: #ccc !important; 
+            opacity: 1 !important;
+        }
+        .contact__form input:focus, 
+        .contact__form textarea:focus {
+            border-color: var(--primary-color) !important; 
+            outline: none !important;
+        }
+
+        /* 6. ESTILOS DE PANELES DE SERVICIO (NUEVOS) */
+        .service-panel-img {
+            margin-bottom: 25px; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+        }
+        .service-panel-img img {
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            display: block;
+        }
+        .services__item:hover .service-panel-img {
+            transform: none;
+        }
+        .services__item:hover {
+            border: none; 
+        }
+        /* Eliminamos cualquier estilo huérfano de services__item__icon */
+        .services__item__icon i {
+            color: var(--primary-color) !important;
+            display: none; /* Asegurar que no se muestre ningún ícono antiguo */
+        }
+
+        /* 7. Footer */
+        .footer__option__item h5, .footer__option__item ul li a, .footer__option__item p, .footer__copyright__text {
+            color: var(--text-light) !important;
+        }
+        .footer__top__social a {
+            color: var(--text-light) !important;
+        }
+        .instagram-link {
+            display: block; 
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body id="inicio">
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="#inicio"><img src="img/logo.png" alt="Okutemoom Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav__option">
+                        <nav class="header__nav__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="#inicio">Inicio</a></li>
+                                <li><a href="#acerca">Acerca de Nosotros</a></li>
+                                <li><a href="#servicios">Nuestros Servicios</a></li>
+                                <li><a href="#contacto">Contáctanos</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__nav__social">
+                            <a href="mailto:tu-correo@ejemplo.com"><i class="fa fa-envelope"></i></a>
+                            <a href="https://instagram.com/tu_usuario" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://wa.me/tunumerodetelefono" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>Okutemoom - Magia y Transformación</span>
+                                <h2>Guía Espiritual y Evolución Personal</h2>
+                                <a href="#acerca" class="primary-btn">Conoce más sobre nosotros</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about spad" id="acerca">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="about__pic__item about__pic__item--large set-bg"
+                                    data-setbg="img/about/about-1.jpg"></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="about__pic__item set-bg" data-setbg="img/about/about-2.jpg"></div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="about__pic__item set-bg" data-setbg="img/about/about-3.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <span>Nuestra Esencia Holística</span>
+                            <h2>¿Quiénes Somos en Okutemoom?</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="services__item">
+                                    <div class="services__item__icon">
+                                        <i class="fa fa-lightbulb-o"></i> 
+                                    </div>
+                                    <h4>Guía y Claridad</h4>
+                                    <p>Te proporcionamos las herramientas para iluminar tu camino y tomar decisiones conscientes.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="services__item">
+                                    <div class="services__item__icon">
+                                        <i class="fa fa-leaf"></i>
+                                    </div>
+                                    <h4>Sanación y Crecimiento</h4>
+                                    <p>Te acompañamos en tu proceso de sanación interior y evolución espiritual.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about__text__desc">
+                            <p>
+                                En **Okutemoom**, creemos firmemente en el poder de la **transformación personal** a través de la sabiduría ancestral del **Tarot** y la disciplina moderna del **Coaching Holístico**. Nuestra misión es ser tu guía de luz, ofreciendo un enfoque integral que aborda la mente, el cuerpo y el espíritu.
+                                Nuestro trabajo se centra en ayudarte a **reconectar con tu ser** auténtico, liberando bloqueos y activando tu potencial para una vida plena y con propósito.
+                            </p>
+                            <a href="#contacto" class="primary-btn">Hablemos de tu Viaje</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial spad set-bg" data-setbg="img/testimonial-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <span>Testimonios</span>
+                        <h2>Lo que dicen nuestros clientes</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="testimonial__slider owl-carousel">
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <div class="testimonial__text">
+                                <p>El servicio de Okutemoom es increíble. Me brindó una claridad que no había encontrado en otros lugares. Recomendado totalmente para cualquier persona que busque respuestas.</p>
+                            </div>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-1.jpg" alt="Foto de Cliente 1">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Sofía L.</h5>
+                                    <span>Emprendedora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <div class="testimonial__text">
+                                <p>El Ritual de Poder personalizado transformó la energía de mi hogar. La atención y la dedicación son excepcionales, me sentí acompañada en todo momento.</p>
+                            </div>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-2.jpg" alt="Foto de Cliente 2">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Javier R.</h5>
+                                    <span>Consultor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <div class="testimonial__text">
+                                <p>Las sesiones de Coaching Holístico me ayudaron a desbloquear viejos patrones. Es una experiencia profunda que realmente vale la pena para el crecimiento personal.</p>
+                            </div>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-3.jpg" alt="Foto de Cliente 3">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Ana P.</h5>
+                                    <span>Terapeuta</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="testimonial__item">
+                            <div class="testimonial__text">
+                                <p>La lectura de Tarot de 5 preguntas fue directa y precisa. Me dio la perspectiva que necesitaba para avanzar con confianza en mis proyectos.</p>
+                            </div>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-1.jpg" alt="Foto de Cliente 4">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>David G.</h5>
+                                    <span>Arquitecto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="counter">
+        <div class="container">
+            <div class="counter__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-1.png" alt="">
+                                <h2 class="counter_num">800</h2>
+                                <p>Sesiones concertadas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item second__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-2.png" alt="">
+                                <h2 class="counter_num">799</h2>
+                                <p>Clientes Satisfechos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item third__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-3.png" alt="">
+                                <h2 class="counter_num">230</h2>
+                                <p>Sesiones de Coaching</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item four__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-4.png" alt="">
+                                <h2 class="counter_num">530</h2>
+                                <p>Lecturas de Tarot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services spad" id="servicios">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Descubre Tu Camino</span>
+                        <h2>Nuestros Servicios de Transformación</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                            <img src="img/portfolio/tarot.jpg" alt="Lectura de Tarot">
+                        </div>
+                        <h4>Lectura de Tarot</h4>
+                        <p>Explora tu presente, pasado y futuro. Lecturas temáticas y especializadas para cada área de tu vida.</p>
+                        <a href="tarot.html" class="primary-btn">Ver Tipos de Tarot</a> 
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                            <img src="img/portfolio/coaching.jpg" alt="Coaching Holístico">
+                        </div>
+                        <h4>Coaching Holístico</h4>
+                        <p>Sesiones personalizadas para alineación de chakras, manifestación y crecimiento del ser.</p>
+                        <a href="coaching.html" class="primary-btn">Más sobre Coaching</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                            <img src="img/portfolio/rituales.jpg" alt="Rituales de Poder">
+                        </div
+                        <h4>Rituales de Poder</h4>
+                        <p>Rituales energéticos personalizados para atraer abundancia, limpieza o protección.</p>
+                        <a href="rituales.html" class="primary-btn">Solicitar Ritual</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="contact spad" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>¿Alguna Pregunta?</span>
+                        <h2>Envíanos un Mensaje</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p>Usa este formulario para registrar cualquier duda, pregunta o solicitud de información general. Te responderemos por correo electrónico lo antes posible.</p>
+                    <form action="tu-endpoint-de-envio-de-correo" method="POST" class="contact__form">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="nombre" placeholder="Nombre" required>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" class="site-btn">Enviar Mensaje</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <a href="https://wa.me/tunumerodetelefono?text=Hola%20Okutemoom,%20me%20gustaría%20agendar%20una%20cita." target="_blank" class="whatsapp-float">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__top__logo">
+                            <a href="#inicio"><img src="img/logo.png" alt="Okutemoom Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        </div>
+                </div>
+            </div>
+            <div class="footer__option">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Información Legal</h5>
+                            <ul>
+                                <li><a href="politica-de-privacidad.pdf" target="_blank">Política de Privacidad</a></li>
+                                <li><a href="terminos-de-servicio.pdf" target="_blank">Términos de Servicio</a></li>
+                                <li><a href="politica-de-cookies.pdf" target="_blank">Política de Cookies</a></li>
+                                <li><a href="aviso-legal.pdf" target="_blank">Aviso Legal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Políticas de Servicio</h5>
+                            <ul>
+                                <li><a href="politica-de-reembolso.pdf" target="_blank">Política de Reembolso</a></li>
+                                <li><a href="condiciones-de-venta.pdf" target="_blank">Condiciones de Venta</a></li>
+                                <li><a href="reglas-de-conducta.pdf" target="_blank">Reglas de Conducta</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Síguenos en Redes</h5>
+                            <a href="https://instagram.com/okutemoom" target="_blank" class="instagram-link">
+                                <i class="fa fa-instagram fa-2x"></i>
+                                <span style="margin-left: 10px; font-weight: bold; font-size: 1.1em;">@okutemoom</span>
+                            </a>
+                            <p style="margin-top: 15px;">Conéctate con nuestra comunidad holística y recibe inspiración diaria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p class="footer__copyright__text">Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                            Todos los derechos reservados | Okutemoom
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Se eliminó todo el código JS de flujo de cita (iniciarCita, ocultarSeccionesFlujo, etc.)
+    </script>
+
+</body>
+
+</html>

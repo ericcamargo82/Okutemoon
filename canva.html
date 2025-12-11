@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="es" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okutemoon - Tarot y Coaching Holístico</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-img-top {
+            border-radius: 15px 15px 0 0;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-card {
+            margin-bottom: 30px;
+        }
+
+        .price-tag {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .calendar-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-img {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            height: auto;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="main-wrapper"><!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container"><a class="navbar-brand" href="#" id="siteTitleNav">Okutemoon</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"> <span class="navbar-toggler-icon"></span> </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+       <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+       <li class="nav-item"><a class="nav-link" href="#acerca">Acerca de Nosotros</a></li>
+       <li class="nav-item"><a class="nav-link" href="#servicios">Nuestros Servicios</a></li>
+       <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+      </ul>
+      <div class="social-links d-none d-lg-block"><a href="mailto:info@okutemoon.com" target="_blank" rel="noopener noreferrer" title="Email"> <i class="fas fa-envelope"></i> </a> <a href="https://instagram.com/okutemoon" target="_blank" rel="noopener noreferrer" title="Instagram"> <i class="fab fa-instagram"></i> </a> <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" title="WhatsApp"> <i class="fab fa-whatsapp"></i> </a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-section" id="inicio">
+    <div class="container">
+     <h1 id="heroTitle">Bienvenido a Okutemoon</h1>
+     <p id="heroSubtitle">Descubre tu camino espiritual a través del Tarot y Coaching Holístico</p><button class="btn btn-light btn-lg" onclick="document.getElementById('servicios').scrollIntoView({behavior: 'smooth'})"> Explorar Servicios </button>
+    </div>
+   </section><!-- Resumen Inicio -->
+   <section class="container my-5">
+    <div class="row">
+     <div class="col-md-4 mb-4">
+      <div class="card text-center">
+       <div class="card-body"><i class="fas fa-user-circle service-icon"></i>
+        <h3 class="card-title">Acerca de Nosotros</h3>
+        <p class="card-text" id="aboutIntro">Conoce nuestra historia y la pasión que nos impulsa a ayudarte en tu viaje espiritual.</p><button class="btn btn-primary" onclick="document.getElementById('acerca').scrollIntoView({behavior: 'smooth'})"> Ver más </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-4 mb-4">
+      <div class="card text-center">
+       <div class="card-body"><i class="fas fa-hand-sparkles service-icon"></i>
+        <h3 class="card-title">Nuestros Servicios</h3>
+        <p class="card-text" id="servicesIntro">Ofrecemos servicios de Tarot y Coaching Holístico personalizados para tu crecimiento personal.</p><button class="btn btn-primary" onclick="document.getElementById('servicios').scrollIntoView({behavior: 'smooth'})"> Ver más </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-4 mb-4">
+      <div class="card text-center">
+       <div class="card-body"><i class="fas fa-envelope-open-text service-icon"></i>
+        <h3 class="card-title">Contáctanos</h3>
+        <p class="card-text">¿Tienes preguntas? Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos pronto.</p><button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})"> Ver más </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Acerca de Nosotros -->
+   <section id="acerca" class="about-section">
+    <div class="container">
+     <h2 class="section-title">Acerca de Nosotros</h2>
+     <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+       <svg class="about-img" viewbox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="400" fill="#f0e6ff" /> <circle cx="200" cy="150" r="60" fill="#667eea" /> <path d="M 140 210 Q 200 250 260 210" stroke="#764ba2" stroke-width="3" fill="none" /> <rect x="120" y="230" width="160" height="120" rx="10" fill="#667eea" /> <circle cx="200" cy="320" r="40" fill="#764ba2" opacity="0.5" /> <path d="M 180 120 L 200 80 L 220 120" fill="#ffd700" />
+       </svg>
+      </div>
+      <div class="col-md-6">
+       <h3>Nuestra Historia</h3>
+       <p>Okutemoon nace de la pasión por guiar a las personas en su camino de autodescubrimiento y crecimiento espiritual. Con años de experiencia en Tarot y Coaching Holístico, hemos ayudado a cientos de personas a encontrar claridad, paz interior y propósito en sus vidas.</p>
+       <p>Nuestra misión es proporcionar herramientas espirituales y emocionales que te permitan conectar con tu verdadero yo, superar obstáculos y manifestar la vida que deseas. Cada consulta es única y personalizada, enfocada en tus necesidades específicas.</p>
+       <p>Creemos en el poder transformador de la espiritualidad consciente y en la importancia de crear un espacio seguro donde puedas explorar tu interior sin juicios.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Nuestros Servicios -->
+   <section id="servicios" class="container my-5">
+    <h2 class="section-title">Nuestros Servicios</h2><!-- Tarot Services -->
+    <h3 class="text-center mb-4 mt-5" style="color: #764ba2;"><i class="fas fa-moon"></i> Servicios de Tarot</h3>
+    <div class="row">
+     <div class="col-md-6 col-lg-4 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#e8d5ff" /> <rect x="150" y="50" width="100" height="150" rx="10" fill="#667eea" /> <circle cx="200" cy="100" r="20" fill="#ffd700" /> <path d="M 180 130 L 220 130 L 200 170 Z" fill="#764ba2" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Tarot General</h5>
+        <p class="card-text">Consulta completa sobre tu situación actual y perspectivas futuras en todas las áreas de tu vida.</p>
+        <div class="price-tag">
+         $30
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Tarot General')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6 col-lg-4 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#fff0f5" /> <circle cx="200" cy="125" r="80" fill="#ff69b4" /> <path d="M 200 80 L 180 110 L 150 110 L 175 135 L 165 165 L 200 145 L 235 165 L 225 135 L 250 110 L 220 110 Z" fill="#fff" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Tarot de Cumpleaños</h5>
+        <p class="card-text">Descubre las energías y oportunidades que te esperan en tu nuevo año personal.</p>
+        <div class="price-tag">
+         $35
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Tarot de Cumpleaños')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6 col-lg-4 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#ffe6f0" /> <path d="M 200 80 Q 150 100 150 140 Q 150 180 200 200 Q 250 180 250 140 Q 250 100 200 80" fill="#ff1493" /> <circle cx="180" cy="130" r="10" fill="#fff" /> <circle cx="220" cy="130" r="10" fill="#fff" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Tarot del Amor</h5>
+        <p class="card-text">Consulta especializada en relaciones, amor y vínculos emocionales.</p>
+        <div class="price-tag">
+         $32
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Tarot del Amor')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6 col-lg-4 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#e6f3ff" /> <text x="200" y="140" font-size="120" text-anchor="middle" fill="#4169e1">
+         ?
+        </text> <circle cx="150" cy="80" r="15" fill="#4169e1" opacity="0.7" /> <circle cx="250" cy="80" r="15" fill="#4169e1" opacity="0.7" /> <circle cx="150" cy="200" r="15" fill="#4169e1" opacity="0.7" /> <circle cx="250" cy="200" r="15" fill="#4169e1" opacity="0.7" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">5 Preguntas</h5>
+        <p class="card-text">Obtén respuestas claras a cinco preguntas específicas que tengas en mente.</p>
+        <div class="price-tag">
+         $40
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('5 Preguntas')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6 col-lg-4 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#f0f8ff" /> <circle cx="200" cy="125" r="80" fill="#9370db" /> <path d="M 160 125 Q 200 85 240 125 Q 200 165 160 125" fill="#fff" opacity="0.7" /> <circle cx="200" cy="125" r="30" fill="#4b0082" /> <circle cx="200" cy="115" r="10" fill="#fff" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Vidas Pasadas</h5>
+        <p class="card-text">Explora tus vidas pasadas y cómo influyen en tu presente y futuro.</p>
+        <div class="price-tag">
+         $50
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Vidas Pasadas')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+    </div><!-- Coaching Holístico -->
+    <h3 class="text-center mb-4 mt-5" style="color: #764ba2;"><i class="fas fa-om"></i> Coaching Holístico</h3>
+    <div class="row">
+     <div class="col-md-6 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#e6ffe6" /> <circle cx="200" cy="125" r="70" fill="#32cd32" /> <circle cx="200" cy="125" r="50" fill="#98fb98" /> <circle cx="200" cy="125" r="30" fill="#00ff00" /> <path d="M 200 95 L 200 155 M 170 125 L 230 125" stroke="#fff" stroke-width="4" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Sesión de Coaching</h5>
+        <p class="card-text">Sesión personalizada de coaching holístico para trabajar en tus objetivos personales y espirituales. Incluye herramientas prácticas para tu transformación.</p>
+        <div class="price-tag">
+         $60
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Sesión de Coaching')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6 service-card">
+      <div class="card">
+       <svg class="card-img-top" viewbox="0 0 400 250" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="250" fill="#fff5e6" /> <circle cx="200" cy="125" r="60" fill="#ff8c00" opacity="0.3" /> <circle cx="200" cy="125" r="45" fill="#ff8c00" opacity="0.5" /> <circle cx="200" cy="125" r="30" fill="#ff8c00" opacity="0.7" /> <circle cx="200" cy="125" r="15" fill="#ff8c00" /> <path d="M 200 65 L 210 95 L 200 85 L 190 95 Z" fill="#ffd700" /> <path d="M 200 185 L 210 155 L 200 165 L 190 155 Z" fill="#ffd700" /> <path d="M 140 125 L 170 135 L 160 125 L 170 115 Z" fill="#ffd700" /> <path d="M 260 125 L 230 135 L 240 125 L 230 115 Z" fill="#ffd700" />
+       </svg>
+       <div class="card-body text-center">
+        <h5 class="card-title">Rituales de Poder</h5>
+        <p class="card-text">Rituales personalizados diseñados para manifestar tus intenciones, limpiar energías y conectar con tu poder interior.</p>
+        <div class="price-tag">
+         $45
+        </div><button class="btn btn-primary mt-3" onclick="showBooking('Rituales de Poder')"> <i class="fas fa-calendar-check"></i> Agendar Cita </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Booking Section (Hidden by default) -->
+   <section id="booking-section" class="container my-5 hidden">
+    <div class="calendar-section">
+     <h2 class="text-center mb-4">Agendar Cita</h2>
+     <h4 class="text-center mb-4" id="selected-service"></h4>
+     <div class="row">
+      <div class="col-md-6 mb-4">
+       <div class="card">
+        <div class="card-body">
+         <h5 class="card-title text-center mb-4">Selecciona Fecha y Hora</h5>
+         <div class="text-center">
+          <svg viewbox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%;"><rect width="300" height="300" fill="#f8f9fa" rx="10" /> <rect x="20" y="20" width="260" height="40" fill="#667eea" rx="5" /> <text x="150" y="47" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">
+            Calendario
+           </text> <text x="50" y="90" font-size="14" fill="#667eea">
+            L
+           </text> <text x="90" y="90" font-size="14" fill="#667eea">
+            M
+           </text> <text x="130" y="90" font-size="14" fill="#667eea">
+            X
+           </text> <text x="170" y="90" font-size="14" fill="#667eea">
+            J
+           </text> <text x="210" y="90" font-size="14" fill="#667eea">
+            V
+           </text> <text x="250" y="90" font-size="14" fill="#667eea">
+            S
+           </text> <circle cx="50" cy="120" r="15" fill="#e0e0e0" /> <circle cx="90" cy="120" r="15" fill="#e0e0e0" /> <circle cx="130" cy="120" r="15" fill="#667eea" /> <text x="130" y="125" font-size="12" fill="#fff" text-anchor="middle">
+            15
+           </text>
+          </svg>
+          <p class="mt-3 text-muted">Este es un ejemplo visual. En producción, aquí se integraría Google Calendar con disponibilidad real.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-6">
+       <form id="booking-form" class="contact-form">
+        <div class="mb-3"><label for="booking-name" class="form-label">Nombre Completo *</label> <input type="text" class="form-control" id="booking-name" required>
+        </div>
+        <div class="mb-3"><label for="booking-email" class="form-label">Correo Electrónico *</label> <input type="email" class="form-control" id="booking-email" required>
+        </div>
+        <div class="mb-3"><label for="booking-phone" class="form-label">Teléfono *</label> <input type="tel" class="form-control" id="booking-phone" required>
+        </div>
+        <div class="mb-3"><label for="booking-comments" class="form-label">Comentarios (Opcional)</label> <textarea class="form-control" id="booking-comments" rows="3"></textarea>
+        </div><button type="submit" class="btn btn-primary w-100"> <i class="fas fa-credit-card"></i> Proceder al Pago </button> <button type="button" class="btn btn-secondary w-100 mt-2" onclick="hideBooking()"> Volver a Servicios </button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section><!-- Payment Confirmation (Hidden by default) -->
+   <section id="payment-section" class="container my-5 hidden">
+    <div class="calendar-section text-center">
+     <h2 class="mb-4">Procesar Pago</h2>
+     <div class="card" style="max-width: 500px; margin: 0 auto;">
+      <div class="card-body">
+       <svg viewbox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%;"><rect width="200" height="150" fill="#f0f0f0" rx="10" /> <rect x="10" y="30" width="180" height="30" fill="#667eea" rx="5" /> <rect x="10" y="70" width="80" height="15" fill="#e0e0e0" rx="3" /> <rect x="10" y="95" width="60" height="15" fill="#e0e0e0" rx="3" /> <text x="100" y="130" font-size="12" fill="#666" text-anchor="middle">
+         Pago Seguro
+        </text>
+       </svg>
+       <h5 class="mt-4">Sistema de Pago</h5>
+       <p class="text-muted">Demo - Esto representa la integración con Stripe, PayPal u otro procesador de pagos.</p>
+       <p>Servicio: <strong id="payment-service"></strong></p>
+       <p>Total: <strong id="payment-amount"></strong></p><button class="btn btn-primary w-100 mt-3" onclick="confirmPayment()"> <i class="fas fa-check-circle"></i> Confirmar Pago (Demo) </button> <button type="button" class="btn btn-secondary w-100 mt-2" onclick="backToBooking()"> Volver </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Confirmation (Hidden by default) -->
+   <section id="confirmation-section" class="container my-5 hidden">
+    <div class="calendar-section text-center">
+     <svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="max-width: 200px; margin: 0 auto;"><circle cx="100" cy="100" r="80" fill="#4caf50" /> <path d="M 60 100 L 85 125 L 140 70" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" />
+     </svg>
+     <h2 class="mt-4 mb-4">¡Cita Confirmada!</h2>
+     <p class="lead">Gracias por confiar en Okutemoon. Hemos enviado la confirmación a tu correo electrónico.</p>
+     <p>Te esperamos en tu sesión. Recibirás un recordatorio antes de tu cita.</p><button class="btn btn-primary mt-3" onclick="resetBooking()"> Volver a Inicio </button>
+    </div>
+   </section><!-- Contacto -->
+   <section id="contacto" class="container my-5">
+    <h2 class="section-title" id="contactTitle">Contáctanos</h2>
+    <div class="row">
+     <div class="col-md-6 mb-4">
+      <div class="contact-form">
+       <form id="contact-form">
+        <div class="mb-3"><label for="contact-name" class="form-label">Nombre Completo *</label> <input type="text" class="form-control" id="contact-name" required>
+        </div>
+        <div class="mb-3"><label for="contact-email" class="form-label">Correo Electrónico *</label> <input type="email" class="form-control" id="contact-email" required>
+        </div>
+        <div class="mb-3"><label for="contact-message" class="form-label">Mensaje *</label> <textarea class="form-control" id="contact-message" rows="5" required></textarea>
+        </div><button type="submit" class="btn btn-primary w-100"> <i class="fas fa-paper-plane"></i> Enviar Mensaje </button>
+       </form>
+       <div id="contact-success" class="alert alert-success mt-3 hidden">
+        ¡Mensaje enviado con éxito! Te responderemos pronto.
+       </div>
+      </div>
+     </div>
+     <div class="col-md-6">
+      <div class="card h-100">
+       <div class="card-body">
+        <h4 class="mb-4">Información de Contacto</h4>
+        <div class="mb-3"><i class="fas fa-envelope text-primary me-2"></i> <a href="mailto:info@okutemoon.com">info@okutemoon.com</a>
+        </div>
+        <div class="mb-3"><i class="fab fa-instagram text-primary me-2"></i> <a href="https://instagram.com/okutemoon" target="_blank" rel="noopener noreferrer">@okutemoon</a>
+        </div>
+        <div class="mb-3"><i class="fab fa-whatsapp text-primary me-2"></i> <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">+1 (234) 567-890</a>
+        </div>
+        <hr class="my-4">
+        <h5>Horario de Atención</h5>
+        <p>Lunes a Viernes: 9:00 AM - 7:00 PM<br>
+          Sábados: 10:00 AM - 5:00 PM<br>
+          Domingos: Cerrado</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer>
+    <div class="container">
+     <div class="row">
+      <div class="col-md-4 mb-4">
+       <h5>Okutemoon</h5>
+       <p>Tu guía en el camino del autodescubrimiento y crecimiento espiritual.</p>
+       <div class="social-links"><a href="mailto:info@okutemoon.com" target="_blank" rel="noopener noreferrer"> <i class="fas fa-envelope"></i> </a> <a href="https://instagram.com/okutemoon" target="_blank" rel="noopener noreferrer"> <i class="fab fa-instagram"></i> </a> <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"> <i class="fab fa-whatsapp"></i> </a>
+       </div>
+      </div>
+      <div class="col-md-4 mb-4">
+       <h5>Enlaces Rápidos</h5>
+       <ul class="footer-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#acerca">Acerca de Nosotros</a></li>
+        <li><a href="#servicios">Nuestros Servicios</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+       </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+       <h5>Políticas Legales</h5>
+       <ul class="footer-links">
+        <li><a href="#" onclick="showPolicy('Términos y Condiciones')">Términos y Condiciones</a></li>
+        <li><a href="#" onclick="showPolicy('Política de Privacidad')">Política de Privacidad</a></li>
+        <li><a href="#" onclick="showPolicy('Política de Cookies')">Política de Cookies</a></li>
+        <li><a href="#" onclick="showPolicy('Política de Reembolso')">Política de Reembolso</a></li>
+        <li><a href="#" onclick="showPolicy('Aviso Legal')">Aviso Legal</a></li>
+        <li><a href="#" onclick="showPolicy('Política de Envío')">Política de Envío</a></li>
+        <li><a href="#" onclick="showPolicy('Protección de Datos')">Protección de Datos</a></li>
+       </ul>
+      </div>
+     </div>
+     <hr style="border-color: rgba(255,255,255,0.2);">
+     <div class="text-center">
+      <p>© 2024 Okutemoon. Todos los derechos reservados.</p>
+     </div>
+    </div>
+   </footer><!-- WhatsApp Float Button --> <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chatea con nosotros"> <i class="fab fa-whatsapp"></i> </a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+        const defaultConfig = {
+            site_title: "Okutemoon",
+            hero_title: "Bienvenido a Okutemoon",
+            hero_subtitle: "Descubre tu camino espiritual a través del Tarot y Coaching Holístico",
+            about_intro: "Conoce nuestra historia y la pasión que nos impulsa a ayudarte en tu viaje espiritual.",
+            services_intro: "Ofrecemos servicios de Tarot y Coaching Holístico personalizados para tu crecimiento personal.",
+            contact_title: "Contáctanos",
+            background_color: "#ffffff",
+            primary_color: "#667eea",
+            text_color: "#333333",
+            accent_color: "#764ba2",
+            card_color: "#f8f9fa",
+            font_family: "Poppins",
+            font_size: 16
+        };
+
+        let currentService = '';
+        let currentPrice = '';
+
+        function showBooking(serviceName) {
+            currentService = serviceName;
+            const prices = {
+                'Tarot General': '$30',
+                'Tarot de Cumpleaños': '$35',
+                'Tarot del Amor': '$32',
+                '5 Preguntas': '$40',
+                'Vidas Pasadas': '$50',
+                'Sesión de Coaching': '$60',
+                'Rituales de Poder': '$45'
+            };
+            currentPrice = prices[serviceName] || '$30';
+            
+            document.getElementById('selected-service').textContent = 'Servicio: ' + serviceName;
+            document.getElementById('booking-section').classList.remove('hidden');
+            document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideBooking() {
+            document.getElementById('booking-section').classList.add('hidden');
+            document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function backToBooking() {
+            document.getElementById('payment-section').classList.add('hidden');
+            document.getElementById('booking-section').classList.remove('hidden');
+        }
+
+        function confirmPayment() {
+            document.getElementById('payment-section').classList.add('hidden');
+            document.getElementById('confirmation-section').classList.remove('hidden');
+            document.getElementById('confirmation-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetBooking() {
+            document.getElementById('booking-form').reset();
+            document.getElementById('booking-section').classList.add('hidden');
+            document.getElementById('payment-section').classList.add('hidden');
+            document.getElementById('confirmation-section').classList.add('hidden');
+            document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showPolicy(policyName) {
+            const message = document.createElement('div');
+            message.className = 'alert alert-info position-fixed top-50 start-50 translate-middle';
+            message.style.zIndex = '9999';
+            message.style.maxWidth = '90%';
+            message.style.width = '400px';
+            message.innerHTML = `
+                <h5>${policyName}</h5>
+                <p>Esta es una página de demostración. En producción, aquí se mostraría el contenido de: ${policyName}</p>
+                <button class="btn btn-primary btn-sm" onclick="this.parentElement.remove()">Cerrar</button>
+            `;
+            document.body.appendChild(message);
+            setTimeout(() => message.remove(), 5000);
+        }
+
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('payment-service').textContent = currentService;
+            document.getElementById('payment-amount').textContent = currentPrice;
+            document.getElementById('booking-section').classList.add('hidden');
+            document.getElementById('payment-section').classList.remove('hidden');
+            document.getElementById('payment-section').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('contact-success');
+            successMsg.classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        });
+
+        async function onConfigChange(config) {
+            const siteTitle = config.site_title || defaultConfig.site_title;
+            const heroTitle = config.hero_title || defaultConfig.hero_title;
+            const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+            const aboutIntro = config.about_intro || defaultConfig.about_intro;
+            const servicesIntro = config.services_intro || defaultConfig.services_intro;
+            const contactTitle = config.contact_title || defaultConfig.contact_title;
+
+            document.getElementById('siteTitleNav').textContent = siteTitle;
+            document.getElementById('heroTitle').textContent = heroTitle;
+            document.getElementById('heroSubtitle').textContent = heroSubtitle;
+            document.getElementById('aboutIntro').textContent = aboutIntro;
+            document.getElementById('servicesIntro').textContent = servicesIntro;
+            document.getElementById('contactTitle').textContent = contactTitle;
+
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            const cardColor = config.card_color || defaultConfig.card_color;
+
+            document.body.style.backgroundColor = backgroundColor;
+            document.body.style.color = textColor;
+
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            }
+
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            }
+
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.style.color = primaryColor;
+            });
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.backgroundColor = cardColor;
+            });
+
+            const buttons = document.querySelectorAll('.btn-primary');
+            buttons.forEach(btn => {
+                btn.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            });
+
+            const priceTags = document.querySelectorAll('.price-tag');
+            priceTags.forEach(tag => {
+                tag.style.backgroundColor = primaryColor;
+            });
+
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+            const baseSize = config.font_size || defaultConfig.font_size;
+            document.body.style.fontSize = `${baseSize}px`;
+
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => el.style.fontSize = `${baseSize * 2}px`);
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => el.style.fontSize = `${baseSize * 1.75}px`);
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => el.style.fontSize = `${baseSize * 1.5}px`);
+
+            const h5Elements = document.querySelectorAll('h5');
+            h5Elements.forEach(el => el.style.fontSize = `${baseSize * 1.25}px`);
+
+            const leadElements = document.querySelectorAll('.lead');
+            leadElements.forEach(el => el.style.fontSize = `${baseSize * 1.2}px`);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_color || defaultConfig.card_color,
+                            set: (value) => {
+                                config.card_color = value;
+                                window.elementSdk.setConfig({ card_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_color || defaultConfig.primary_color,
+                            set: (value) => {
+                                config.primary_color = value;
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.accent_color || defaultConfig.accent_color,
+                            set: (value) => {
+                                config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["site_title", config.site_title || defaultConfig.site_title],
+                    ["hero_title", config.hero_title || defaultConfig.hero_title],
+                    ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                    ["about_intro", config.about_intro || defaultConfig.about_intro],
+                    ["services_intro", config.services_intro || defaultConfig.services_intro],
+                    ["contact_title", config.contact_title || defaultConfig.contact_title]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9abf0af4f7cceef2',t:'MTc2NTM5MzgzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
