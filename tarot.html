@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Okutemoom - Tipos de Lectura de Tarot. Encuentra claridad en el amor, el trabajo y tu camino espiritual.">
+    <meta name="keywords" content="Tarot, Lectura de Cartas, Tiradas de Tarot, Okutemoom, Tarot de 5 Preguntas, Tarot del Amor, Coaching">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Okutemoom | Servicios de Tarot</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/font-awesome.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css?v=3" type="text/css">
+    <link rel="stylesheet" href="css/style.css?v=3" type="text/css">
+
+    <style>
+        /* 🎨 Variables de Color y Tipografía */
+        :root {
+            --primary-color: #402E71;
+            /* Morado Oscuro para acento y fondos principales */
+            --text-light: #ffffff;
+            /* Texto general en fondos oscuros */
+            --text-dark: #333333;
+            /* No usado activamente, pero disponible */
+            --background-dark: #333333;
+            /* Fondo de secciones oscuras */
+            --focus-shadow: 0 0 0 0.2rem rgba(64, 46, 113, 0.5);
+            /* Sombra Morada para accesibilidad */
+            --secondary-bg: #1c1c1c;
+            /* Fondo para paneles de servicio en subpáginas */
+        }
+
+        /* 🖋️ Tipografía Global (Times New Roman forzado) */
+        body,
+        h1, h2, h3, h4, h5, h6,
+        p, span, a, li,
+        .header__nav__option .header__nav__menu ul li a,
+        .hero__text h2,
+        .section-title h2 {
+            font-family: "Times New Roman", Times, serif !important;
+        }
+
+        /* ------------------------------------------------------------------------- */
+        /* 🛡️ FIX CRÍTICO: Anulación de Contornos Azules (Foco/Accesibilidad) */
+
+        .btn:focus,
+        .site-btn:focus,
+        .primary-btn:focus,
+        .header a:focus,
+        a:focus,
+        .form-control:focus,
+        input:focus,
+        textarea:focus,
+        .slicknav_btn:focus,
+        .slicknav_menu a:focus {
+            box-shadow: var(--focus-shadow) !important;
+            border-color: var(--primary-color) !important;
+            outline: 0 !important;
+        }
+
+        /* ⬆️ AJUSTES DEL HEADER (Fijo y Compacto) */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(64, 46, 113, 0.9) !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
+
+        .header .header__logo img {
+            max-height: 35px !important;
+        }
+
+        .header .header__nav__option .header__nav__menu ul li a {
+            color: var(--text-light) !important;
+            font-size: 12px !important;
+            padding: 5px 8px !important;
+        }
+
+        .header .header__nav__option .header__nav__menu ul li.active a:after,
+        .header .header__nav__option .header__nav__menu ul li a:hover:after {
+            background: var(--primary-color) !important;
+        }
+
+        /* 💡 Paleta de Colores: Forzar Texto Claro */
+
+        body {
+             background-color: var(--background-dark); /* Fondo principal de la página de servicios */
+        }
+        
+        /* Asegura que todos los textos principales sean blancos */
+        body,
+        h1, h2, h3, h4, h5, h6,
+        p,
+        .section-title span,
+        .section-title h2 {
+            color: var(--text-light) !important;
+        }
+
+        /* Botones */
+        .primary-btn,
+        .site-btn {
+            background-color: var(--primary-color) !important;
+            color: var(--text-light) !important;
+        }
+
+        /* --------------------------------------------------- */
+        /* 🔮 Estilos de la Página de Servicios de Tarot */
+
+        /* Separación para Header fijo */
+        .service-page-section {
+            padding-top: 100px; 
+            padding-bottom: 70px;
+        }
+        
+        /* Contenedor de cada servicio de Tarot */
+        .services__item {
+            background: var(--secondary-bg); 
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .services__item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* IMAGEN DEL SERVICIO - Copiado del Index */
+        .service-panel-img {
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            height: 250px; /* Altura fija para uniformidad */
+        }
+        .service-panel-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Título del servicio: FORZADO A BLANCO */
+        .services__item h4 {
+            color: var(--text-light) !important; /* Texto blanco asegurado */
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-cost {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffc107 !important; /* Dorado o color destacado para el costo */
+            display: block;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        
+        .services__item p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* --------------------------------------------------- */
+        /* ⬇️ Estilos del Footer y WhatsApp Flotante (Copiados del Index) */
+        
+        .footer__option__item h5,
+        .footer__option__item ul li a,
+        .footer__option__item p,
+        .footer__copyright__text {
+            color: var(--text-light) !important;
+        }
+
+        .footer__option__item ul li a,
+        .footer__option__item p {
+            font-size: 0.85em !important;
+        }
+
+        .instagram-link,
+        .tiktok-link {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            color: var(--text-light) !important;
+        }
+
+        .instagram-link:hover,
+        .tiktok-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="img/logo.png" alt="Okutemoom Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav__option">
+                        <nav class="header__nav__menu mobile-menu">
+                            <ul style="font-size: 12px !important; padding: 0 !important; margin: 0 !important;">
+                                <li><a href="index.html#inicio" style="font-size: 12px !important;">Inicio</a></li>
+                                <li><a href="index.html#acerca" style="font-size: 12px !important;">Acerca de Nosotros</a></li>
+                                <li class="active"><a href="#tarot-services" style="font-size: 12px !important;">Nuestros Servicios</a></li>
+                                <li><a href="index.html#contacto" style="font-size: 12px !important;">Contáctanos</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__nav__social">
+                            <a href="mailto:okutemoom@gmail.com"><i class="fa fa-envelope"></i></a>
+                            <a href="https://www.instagram.com/okutemoom/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://wa.me/525549226521" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@okutemoom7" target="_blank"><i class="fa fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <section class="service-page-section hero set-bg" data-setbg="img/hero/tarot-banner-bg.jpg" style="background-size: cover; background-position: center; padding-top: 150px; padding-bottom: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__text text-center">
+                        <span style="font-size: 1.1em;">Guía de las Cartas y el Espíritu</span>
+                        <h2 style="font-size: 3.5em; margin-top: 10px;">Encuentra el Tarot Perfecto para Ti</h2>
+                        <p style="max-width: 600px; margin: 0 auto; margin-top: 20px;">Cada tirada está diseñada para ofrecerte una perspectiva clara y amorosa sobre tu presente y tu futuro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services spad" id="tarot-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Conoce los Arcanos</span>
+                        <h2>Nuestros 5 Servicios de Lectura</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                             <img src="img/servicios/tarot-general.jpeg" alt="Lectura de Tarot General Personalizada">
+                        </div>
+                        <h4>Lectura de Tarot General Personalizada</h4>
+                        <p>Una sesión profunda y completa para obtener una visión panorámica de tu vida (amor, trabajo, finanzas, salud) y las energías que te rodean. Ideal para momentos de cambio o incertidumbre.</p>
+                        
+                        <span class="service-cost">Costo: $50 USD</span>
+                        <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20quiero%20agendar%20una%20Lectura%20de%20Tarot%20General%20Personalizada." target="_blank" class="primary-btn">Agendar General</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                             <img src="img/servicios/tarot-cumpleanos.jpeg" alt="Lectura de Tarot de cumpleaños online">
+                        </div>
+                        <h4>Lectura de Tarot de Cumpleaños Online</h4>
+                        <p>Descubre las predicciones, desafíos y bendiciones de tu próximo año solar. Un regalo perfecto para ti o para alguien especial que busca enfocar el nuevo ciclo con claridad.</p>
+                        
+                        <span class="service-cost">Costo: $45 USD</span>
+                        <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20quiero%20agendar%20la%20Lectura%20de%20Cumpleaños." target="_blank" class="primary-btn">Agendar Cumpleaños</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                             <img src="img/servicios/tarot-amor.jpeg" alt="Lectura de Tarot de Amor">
+                        </div>
+                        <h4>Lectura de Tarot de Amor: Claridad y Calidez para tu Corazón</h4>
+                        <p>Enfocada en tu vida sentimental, vínculos de pareja, soltería, karma amoroso y la energía de tu relación actual. Recibe guía amorosa para tomar decisiones conscientes.</p>
+                        
+                        <span class="service-cost">Costo: $40 USD</span>
+                        <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20quiero%20agendar%20la%20Lectura%20de%20Tarot%20de%20Amor." target="_blank" class="primary-btn">Agendar Amor</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                             <img src="img/servicios/tarot-preguntas.jpeg" alt="Tarot responde 5 preguntas">
+                        </div>
+                        <h4>Tarot Responde 5 Preguntas: Lectura Clara y Cercana</h4>
+                        <p>Respuesta rápida y directa a 5 dudas concretas. Ideal si ya tienes claras tus preguntas y necesitas una guía inmediata sin una sesión larga. Entrega por audio/texto.</p>
+                        
+                        <span class="service-cost">Costo: $30 USD</span>
+                        <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20quiero%20solicitar%20el%20Tarot%20de%205%20Preguntas." target="_blank" class="primary-btn">Solicitar 5 Preguntas</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="services__item">
+                        <div class="service-panel-img">
+                             <img src="img/servicios/tarot-pasadas.jpeg" alt="Lectura de Tarot Vidas Pasadas">
+                        </div>
+                        <h4>Lectura de Tarot “Vidas Pasadas”</h4>
+                        <p>Descubre la influencia de tus existencias anteriores en tu vida actual. Identifica bloqueos kármicos, talentos olvidados y lecciones pendientes para sanar y avanzar.</p>
+                        
+                        <span class="service-cost">Costo: $55 USD</span>
+                        <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20quiero%20agendar%20la%20Lectura%20de%20Vidas%20Pasadas." target="_blank" class="primary-btn">Agendar Vidas Pasadas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="https://wa.me/525549226521?text=Hola%20Okutemoom,%20me%20gustaría%20agendar%20una%20cita." target="_blank" class="whatsapp-float">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__option">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Información Legal</h5>
+                            <ul>
+                                <li><a href="politica-de-privacidad.pdf" target="_blank">Política de Privacidad</a></li>
+                                <li><a href="terminos-de-servicio.pdf" target="_blank">Términos de Servicio</a></li>
+                                <li><a href="politica-de-cookies.pdf" target="_blank">Política de Cookies</a></li>
+                                <li><a href="aviso-legal.pdf" target="_blank">Aviso Legal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Políticas de Servicio</h5>
+                            <ul>
+                                <li><a href="politica-de-reembolso.pdf" target="_blank">Política de Reembolso</a></li>
+                                <li><a href="condiciones-de-venta.pdf" target="_blank">Condiciones de Venta</a></li>
+                                <li><a href="reglas-de-conducta.pdf" target="_blank">Reglas de Conducta</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Síguenos en Redes</h5>
+
+                            <a href="https://www.instagram.com/okutemoom/" target="_blank" class="instagram-link">
+                                <i class="fa fa-instagram fa-2x"></i>
+                                <span style="margin-left: 10px; font-weight: bold; font-size: 1.1em;">@okutemoom</span>
+                            </a>
+
+                            <a href="https://www.tiktok.com/@okutemoom7" target="_blank" class="tiktok-link" style="margin-top: 5px;">
+                                <i class="fa fa-tiktok fa-2x"></i>
+                                <span style="margin-left: 10px; font-weight: bold; font-size: 1.1em;">@okutemoom7</span>
+                            </a>
+
+                            <p style="margin-top: 15px;">Conéctate con nuestra comunidad holística y recibe inspiración diaria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p class="footer__copyright__text">Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                            Todos los derechos reservados | Okutemoom
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
